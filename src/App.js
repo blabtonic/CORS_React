@@ -1,24 +1,23 @@
 import React, { Component } from 'react';
-import Contacts from './components/Contacts';
-
+import Universities from './components/Universities';
 
 class App extends Component {
   state = {
-    contacts: [],
+    universities: [],
   }
 
   componentDidMount(){
-    fetch('http://jsonplaceholder.typicode.com/users')
+    fetch('http://universities.hipolabs.com/search?name=middle')
     .then(res => res.json())
     .then((data) => {
-      this.setState({ contacts: data })
+      this.setState({ universities: data })
     })
     .catch(console.log)
   }
 
   render(){
     return(
-      <Contacts contacts={this.state.contacts}></Contacts>
+      <Universities universities={this.state.universities}></Universities>
     );
     
   }
